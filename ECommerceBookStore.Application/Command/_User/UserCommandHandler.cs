@@ -25,15 +25,15 @@ namespace ECommerceBookStore.Application.Command._User
                 case Operation.Create:
                     user = new User
                     {
-                        UserName = request.UserDto.UserName,
-                        Password = request.UserDto.Password,
-                        Email = request.UserDto.Email,
-                        FirstName = request.UserDto.FirstName,
-                        LastName = request.UserDto.LastName,
-                        Address = request.UserDto.Address,
-                        Pincode = request.UserDto.Pincode,
-                        PhoneNumber = request.UserDto.PhoneNumber,
-                        IsCustomer = request.UserDto.IsCustomer
+                        UserName = request.User2Dto.UserName,
+                        Password = request.User2Dto.Password,
+                        Email = request.User2Dto.Email,
+                        FirstName = request.User2Dto.FirstName,
+                        LastName = request.User2Dto.LastName,
+                        Address = request.User2Dto.Address,
+                        Pincode = request.User2Dto.Pincode,
+                        PhoneNumber = request.User2Dto.PhoneNumber,
+                        IsCustomer = request.User2Dto.IsCustomer
                     };
                     var createdUser = await baseRepository.CreateUserAsync(user);
                     return mapper.Map<UserDto>(createdUser);

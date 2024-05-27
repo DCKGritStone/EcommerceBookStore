@@ -25,10 +25,10 @@ namespace ECommerceBookStore.Application.Command._Book
                 case Operation.Create:
                     book = new Book
                     {
-                        Title = request.BookDto.Title,
-                        AuthorId = request.BookDto.AuthorId,
-                        Price = request.BookDto.Price,
-                        Description = request.BookDto.Description
+                        Title = request.Book2Dto.Title,
+                        AuthorId = request.Book2Dto.AuthorId,
+                        Price = request.Book2Dto.Price,
+                        Description = request.Book2Dto.Description
                     };
                     var createdBook = await baseRepository.CreateBookAsync(book);
                     return mapper.Map<BookDto>(createdBook);

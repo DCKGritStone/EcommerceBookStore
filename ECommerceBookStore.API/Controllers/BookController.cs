@@ -33,9 +33,10 @@ namespace ECommerceBookStore.API.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create([FromBody] BookDto bookDto)
+        public async Task<IActionResult> Create([FromBody] Book2Dto book2Dto)
         {
-            var command = new BookCommand(Operation.Create, bookDto);
+
+            var command = new BookCommand(Operation.Create, book2Dto: book2Dto);
             var result = await Mediator.Send(command);
 
             return Ok(result);

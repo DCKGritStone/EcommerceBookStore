@@ -25,11 +25,11 @@ namespace ECommerceBookStore.Application.Command._Publisher
                 case Operation.Create:
                     publisher = new Publisher
                     {
-                        Name = request.PublisherDto.Name,
-                        BookId = request.PublisherDto.BookId,
-                        Price = request.PublisherDto.Price,
-                        Stock = request.PublisherDto.Stock,
-                        Payment = request.PublisherDto.Payment
+                        Name = request.Publisher2Dto.Name,
+                        BookId = request.Publisher2Dto.BookId,
+                        Price = request.Publisher2Dto.Price,
+                        Stock = request.Publisher2Dto.Stock,
+                        Payment = request.Publisher2Dto.Payment
 
                     };
                     var createdPublisher = await baseRepository.CreatePublisherAsync(publisher);

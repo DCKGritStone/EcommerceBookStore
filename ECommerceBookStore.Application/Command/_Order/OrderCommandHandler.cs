@@ -25,11 +25,11 @@ namespace ECommerceBookStore.Application.Command._Order
                 case Operation.Create:
                     order = new Order
                     {
-                        LoginId = request.OrderDto.LoginId,
-                        Date = request.OrderDto.Date,
-                        BookId = request.OrderDto.BookId,
-                        Quantity = request.OrderDto.Quantity,
-                        TotalPrice = request.OrderDto.TotalPrice
+                        LoginId = request.Order2Dto.LoginId,
+                        Date = request.Order2Dto.Date,
+                        BookId = request.Order2Dto.BookId,
+                        Quantity = request.Order2Dto.Quantity,
+                        TotalPrice = request.Order2Dto.TotalPrice
                     };
                     var createdBook = await baseRepository.CreateOrderAsync(order);
                     return mapper.Map<OrderDto>(createdBook);

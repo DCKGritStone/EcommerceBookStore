@@ -33,9 +33,9 @@ namespace ECommerceBookStore.API.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create([FromBody] OrderDto orderDto)
+        public async Task<IActionResult> Create([FromBody] Order2Dto order2Dto)
         {
-            var command = new OrderCommand(Operation.Create, orderDto);
+            var command = new OrderCommand(Operation.Create, order2Dto: order2Dto);
             var result = await Mediator.Send(command);
 
             return Ok(result);
@@ -49,7 +49,7 @@ namespace ECommerceBookStore.API.Controllers
                 var result = await Mediator.Send(command);
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest("You are a fool");
         }
 
         [HttpDelete("Delete")]

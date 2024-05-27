@@ -33,19 +33,20 @@ namespace ECommerceBookStore.API.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create([FromBody] AuthorDto authorDto)
+        public async Task<IActionResult> Create([FromBody] Author2Dto author2Dto)
         {
-            var command = new AuthorCommand(Operation.Create, authorDto);
+            var command = new AuthorCommand(Operation.Create, author2Dto: author2Dto);
             var result = await Mediator.Send(command);
 
             return Ok(result);
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, AuthorDto authorDto)
         {
             if (id == authorDto.Id)
             {
-                var command = new AuthorCommand(Operation.Update, authorDto);
+                var command = new AuthorCommand(Operation.Update, authorDto: authorDto);
                 var result = await Mediator.Send(command);
                 return Ok(result);
             }

@@ -20,15 +20,15 @@ namespace ECommerceBookStore.Application.Command._Author
         public async Task<AuthorDto> Handle(AuthorCommand request, CancellationToken cancellationToken)
         {
             Author author;
-
             switch (request.Operation)
+
             {
                 case Operation.Create:
                     author = new Author
                     {
-                        Name = request.AuthorDto.Name,
-                        DOB = request.AuthorDto.DOB,
-                        Nationality = request.AuthorDto.Nationality
+                        Name = request.Author2Dto.Name,
+                        DOB = request.Author2Dto.DOB,
+                        Nationality = request.Author2Dto.Nationality
 
                     };
                     var createdAuthor = await baseRepository.CreateAuthorAsync(author);
@@ -42,7 +42,6 @@ namespace ECommerceBookStore.Application.Command._Author
                         DOB = request.AuthorDto.DOB,
                         Nationality = request.AuthorDto.Nationality
                     };
-
                     await baseRepository.UpdateAuthorAsync(request.AuthorDto.Id, updateAuthor);
 
                     return mapper.Map<AuthorDto>(updateAuthor);
@@ -57,6 +56,8 @@ namespace ECommerceBookStore.Application.Command._Author
             }
 
         }
+
+
     }
 }
 
